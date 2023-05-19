@@ -18,24 +18,26 @@
 <main class="container my-4 py-4">
     <div class="row">
         <div class="col-sm-4 my-5 mx-auto border border-3">
-            <form action="#">
+            <form action="/Movie/Login.do" method="post">
                 <div>
-                    <label for="user-id" class="form-label">사용자 :</label>
+                    <label for="user-id" class="form-label mt-3">사용자 :</label>
                     <input type="text" class="form-control" id="user-id" name="userId" placeholder="Id를 입력해주세요">
                 </div>
                 <div>
-                    <label for="user-pw" class="form-label">비밀번호 :</label>
+                    <label for="user-nick" class="form-label mt-3">닉네임 :</label>
+                    <input type="text" class="form-control" id="user-nick" name="userNickName" placeholder="사용할 닉네임을 입력해주세요">
+                </div>
+                <div>
+                    <label for="user-pw" class="form-label mt-3">비밀번호 :</label>
                     <input type="text" class="form-control" id="user-pw" name="userPw" placeholder="비밀번호를 입력해주세요">
                 </div>
                 <div>
-                    <label for="user-check-pw" class="form-label">비밀번호 :</label>
-                    <input type="text" class="form-control" id="user-check-pw" name="userCheckPw" placeholder="비밀번호를 한번더 입력해주세요">
+                    <label for="user-check-pw" class="form-label mt-3">비밀번호 확인 :</label>
+                    <input type="text" class="form-control" id="user-check-pw" name="userCheckPw" placeholder="비밀번호를 재 입력해주세요">
                 </div>
-                <div>
-                    <a href="#" class="btn btn-primary d-block mt-2">확인</a>
-                </div>
-                <div>
-                    <a href="#" class="btn btn-outline-primary d-block mt-2">취소</a>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary mt-3 d-block">회원가입</button>
+                    <button type="reset" class="btn btn-outline-primary d-block mt-3">취소</button>
                 </div>
             </form>
         </div>

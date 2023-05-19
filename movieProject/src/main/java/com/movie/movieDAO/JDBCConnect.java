@@ -20,9 +20,9 @@ public class JDBCConnect {
     // colose()  : db 연결 해제
 
     // 필드
-    private Connection conn = null;
-    private PreparedStatement stmt = null;
-    private ResultSet rs = null;
+    protected Connection conn = null;
+    protected PreparedStatement pstmt = null;
+    protected ResultSet rs = null;
 
     // 생성자
     public JDBCConnect(){
@@ -51,7 +51,7 @@ public class JDBCConnect {
     public void dbClose(){
         try{
             if(rs != null){rs.close();}
-            if(stmt != null){stmt.close();}
+            if(pstmt != null){pstmt.close();}
             if(conn != null){conn.close();}
             System.out.println("DB Not Connect success!!!");
         }
