@@ -16,12 +16,26 @@
     <title>마이 페이지</title>
 </head>
 <body>
-<jsp:include page="/layout/header.jsp"></jsp:include>
+<jsp:include page="../layout/header.jsp"></jsp:include>
+
 <main class="container">
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
+    <div class="row mx-3 px-3">
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../img/no-image.jpg" class="card-img-top">
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p>닉네임</p>
+        </div>
+        <div class="col-sm-4">
+            <p>좋아요 수</p>
+            <p>1</p>
+            <a href="#" ></a>
+        </div>
     </div>
     <div class="col-sm-12"></div>
 </main>

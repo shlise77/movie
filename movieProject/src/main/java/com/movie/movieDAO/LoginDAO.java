@@ -70,12 +70,19 @@ public class LoginDAO extends JDBCConnect {
             rs= pstmt.executeQuery();
 
             while (rs.next()){
-                userInfoDto.setMovieIndex(rs.getInt("movie_index"));
-                userInfoDto.setMovieId(rs.getString("movie_id"));
-                userInfoDto.setMovieId(rs.getString("movie_pw"));
-                userInfoDto.setMovieNickName(rs.getString("movie_nick_name"));
-                userInfoDto.setRankId(rs.getInt("rank_id"));
+                userInfoDto.setMovieIndex(rs.getInt("movie_index")); //10
+                userInfoDto.setMovieId(rs.getString("movie_id")); // testiser
+                userInfoDto.setMoviePw(rs.getString("movie_pw")); // 1234
+                userInfoDto.setMovieNickName(rs.getString("movie_nick_name"));// 하나
+                userInfoDto.setRankId(rs.getInt("rank_id")); //2
             }
+
+            //  SQL문 확인
+            System.out.println("+--------SQL문 확인--------+");
+            System.out.println(sql);
+            System.out.println("+------------------------+");
+            // 디버그용 중단점
+            ;
         }
         catch (Exception e){
             System.out.println("Login 실패");
