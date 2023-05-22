@@ -7,6 +7,7 @@ public class LoginDTO {
     private String moviePw; // 비밀번호
     private String movieNickName; //사용할 닉네임
     private String rankId;// 회원 구분
+    private String movieUserImg; // 회원 이미지
 
     public int getMovieIndex() {
         return movieIndex;
@@ -47,4 +48,12 @@ public class LoginDTO {
     public void setRankId(String rankId) {
         this.rankId = rankId;
     }
+    public String getMovieUserImg() {
+        return movieUserImg;
+    }
+
+    public void setMovieUserImg(String movieUserImg) {
+        this.movieUserImg = movieUserImg;
+    }
+
 }
