@@ -43,6 +43,9 @@
                     <div>
                         <p><a href="#" class="btn btn-primary text-decoration-none">로그아웃</a></p>
                     </div>
+                    <%
+                        session.getAttribute("movieId");
+                    %>
                     <div class="pt-2 pe-5">
                         <span>${userInfo.movieNickName}님 반갑습니다.</span>
                     </div>
@@ -50,8 +53,8 @@
                 <c:when test="${userInfo.rankId eq '' == false}">
                 <form action="/Movie/Login.do" method="post">
                     <div class="d-inline">
-                        <label for="user-id" class="label-control">ID :</label>
-                        <input type="text" class="header-control" id="user-id" name="userId">
+                        <label for="movie-id" class="label-control">ID :</label>
+                        <input type="text" class="header-control" id="movie-id" name="movieId">
                     </div>
                     <div class="d-inline">
                         <label for="user-pw" class="label-control">PW :</label>

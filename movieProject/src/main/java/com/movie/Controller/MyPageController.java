@@ -16,7 +16,7 @@ public class MyPageController extends HttpServlet {
         String movieId = req.getParameter("movieId");
         // 확인해보기
         System.out.println("movieId::"+movieId); // 확인 끝
-        req.getRequestDispatcher("/mypage/movieMyPage.jsp").forward(req,resp);
+        req.getRequestDispatcher("/mypage/MyPage.jsp").forward(req,resp);
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{}

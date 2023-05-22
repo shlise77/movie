@@ -21,16 +21,16 @@ public class MovieSignUpController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         // 1. 값 들고 오는지 확인
-        String userid = req.getParameter("userId");
+        String movieId = req.getParameter("movieId");
         String userNickName = req.getParameter("userNickName");
         String userPw = req.getParameter("userPw");
 
-        System.out.println("아이디"+userid+"닉네임"+userNickName+"userpw"+userPw);
+        System.out.println("아이디"+movieId+"닉네임"+userNickName+"userpw"+userPw);
 
         // 2. dao 값을 쏘고
         // getAttribute, getParameter 차이점 공부해보기
         LoginDTO loginDto = new LoginDTO(); // 객체를 생성
-        loginDto.setMovieId(req.getParameter("userId"));
+        loginDto.setMovieId(req.getParameter("movieId"));
         loginDto.setMovieNickName(req.getParameter("userNickName"));
         loginDto.setMoviePw(req.getParameter("userPw"));
 //
