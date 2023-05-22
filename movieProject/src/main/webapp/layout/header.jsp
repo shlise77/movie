@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
-    $(document).ready(function(){
-        $("#loginBtn").on("click",function(){
+    $(document).ready(function () {
+        $("#loginBtn").on("click", function () {
             alert('공사중');
         });
     });
@@ -38,21 +38,33 @@
         </div>
         <div class="col-sm">
             <div class="d-flex flex-row-reverse">
-            <form action="/Movie/LoginCheck.do" method="post">
-                <div class="d-inline">
-                    <label for="user-id" class="label-control">ID :</label>
-                    <input type="text" class="header-control" id="user-id" name="userId">
-                </div>
-                <div class="d-inline">
-                    <label for="user-pw" class="label-control">PW :</label>
-                    <input type="text" class="header-control" id="user-pw" name="userPw">
-                </div>
-                <div class="d-inline ms-3">
-                    <button type="submit" class="btn btn-primary" name="loginBtn">로그인</button>
-                </div>
-            </form>
+                <c:choose>
+                <c:when test="${userInfo.rankId eq '2'}">
+                    <div>
+                        <p><a href="#" class="btn btn-primary text-decoration-none">로그아웃</a></p>
+                    </div>
+                    <div class="pt-2 pe-5">
+                        <span>${userInfo.movieNickName}님 반갑습니다.</span>
+                    </div>
+                </c:when>
+                <c:when test="${userInfo.rankId eq '' == false}">
+                <form action="/Movie/Login.do" method="post">
+                    <div class="d-inline">
+                        <label for="user-id" class="label-control">ID :</label>
+                        <input type="text" class="header-control" id="user-id" name="userId">
+                    </div>
+                    <div class="d-inline">
+                        <label for="user-pw" class="label-control">PW :</label>
+                        <input type="text" class="header-control" id="user-pw" name="userPw">
+                    </div>
+                    <div class="d-inline ms-3">
+                        <button type="submit" class="btn btn-primary">로그인</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <a href="/Movie/Login.do" class="col-sm-2 btn btn-link text-decoration-none">회원가입</a>
+        <a href="/Movie/SignUp.do" class="col-sm-2 btn btn-link text-decoration-none">회원가입</a>
+        </c:when>
+        </c:choose>
     </div>
 </header>
