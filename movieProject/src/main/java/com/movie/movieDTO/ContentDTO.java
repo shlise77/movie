@@ -7,8 +7,7 @@ public class ContentDTO {
     private String movieContent; // 내용
     private String contentImg; // content 안 이미지
     private String contentDate; // 시간
-    private String area; // 분야?
-    private String genre; // 장르?
+    private String genre; // 장르
     private String likeNum; //좋아요 수
 
 }
