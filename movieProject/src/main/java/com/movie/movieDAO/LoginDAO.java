@@ -53,7 +53,7 @@ public class LoginDAO extends JDBCConnect {
 
 
     // 로그인 페이지
-    public LoginDTO selectLoginMovie(String userId) {
+    public LoginDTO selectLoginMovie(String movieId) {
         //1. userid, 와 userpw 의 메게변수를 받아 온다. 그리고 list 형식으로 만들 것이라고 리스트 형식으로 불러온다
         LoginDTO userInfoDto = new LoginDTO(); // db 의 칼럼값을 가져 오기위에 객체 생성
         // 2. select 문으로 sql문을 짠다.
@@ -66,7 +66,7 @@ public class LoginDAO extends JDBCConnect {
 
         try{
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,userId);
+            pstmt.setString(1,movieId);
             rs= pstmt.executeQuery();
 
             while (rs.next()){

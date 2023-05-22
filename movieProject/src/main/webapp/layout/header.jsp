@@ -32,6 +32,12 @@
     }
 </style>
 <header class="container-fluid bg-secondary p-4">
+    <%
+        String userId = request.getParameter("movieId");
+        session.setAttribute("userId",userId);
+        String movieId = (String)session.getAttribute("userId");
+        out.println("123"+movieId);
+    %>
     <div class="row">
         <div class="col-sm-2">
             <a href="#" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
@@ -43,9 +49,6 @@
                     <div>
                         <p><a href="#" class="btn btn-primary text-decoration-none">로그아웃</a></p>
                     </div>
-                    <%
-                        session.getAttribute("movieId");
-                    %>
                     <div class="pt-2 pe-5">
                         <span>${userInfo.movieNickName}님 반갑습니다.</span>
                     </div>

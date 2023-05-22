@@ -30,10 +30,6 @@ public class MovieLoginController extends HttpServlet{
         //   곧 마이 페이지의 닉네임 값과 rank 값을 보여줘야됨
         req.setAttribute("userInfo", userInfo);
 
-        //session
-        HttpSession session = req.getSession();
-        session.invalidate();
-
         req.getRequestDispatcher("/movieMain.jsp").forward(req,resp);
     }
 }
