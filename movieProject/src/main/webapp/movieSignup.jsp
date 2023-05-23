@@ -20,8 +20,8 @@
         <div class="col-sm-4 my-5 mx-auto border border-3">
             <form action="/Movie/SignUp.do" method="post">
                 <div>
-                    <label for="user-id" class="form-label mt-3">사용자 :</label>
-                    <input type="text" class="form-control" id="user-id" name="userId" placeholder="Id를 입력해주세요">
+                    <label for="movie-id" class="form-label mt-3">사용자 :</label>
+                    <input type="text" class="form-control" id="movie-id" name="movieId" placeholder="Id를 입력해주세요">
                 </div>
                 <div>
                     <label for="user-nick" class="form-label mt-3">닉네임 :</label>

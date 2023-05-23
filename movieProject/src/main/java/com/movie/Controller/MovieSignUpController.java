@@ -31,8 +31,8 @@ public class MovieSignUpController extends HttpServlet {
         // getAttribute, getParameter 차이점 공부해보기
         LoginDTO loginDto = new LoginDTO(); // 객체를 생성
         loginDto.setMovieId(req.getParameter("movieId"));
-        loginDto.setMovieNickName(req.getParameter("userNickName"));
         loginDto.setMoviePw(req.getParameter("userPw"));
+        loginDto.setMovieNickName(req.getParameter("userNickName"));
 //
 //        //2-1 insert 을 하기 위해 dao 객체 불러 오기
         LoginDAO loginDao = new LoginDAO(); // 객체 생성

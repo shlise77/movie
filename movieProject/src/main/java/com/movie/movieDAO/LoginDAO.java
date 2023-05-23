@@ -19,7 +19,7 @@ public class LoginDAO extends JDBCConnect {
         int result = 0;
         // 회원가입할 sql insert 문 작성
         String sql = "INSERT INTO ";
-        sql += "movlogin (movie_id, movie_pw, movie_nick_name) ";
+            sql += "movie_login (movie_id, movie_pw, movie_nick_name) ";
         sql += "VALUES ";
         sql += "(?, ?, ?)";
 
@@ -60,7 +60,7 @@ public class LoginDAO extends JDBCConnect {
         String sql = "SELECT ";
         sql += "movie_index, movie_id, movie_pw, movie_nick_name, rank_id ";
         sql += "FROM ";
-        sql += "movlogin ";
+        sql += "movie_login ";
         sql += "WHERE ";
         sql += "movie_id=?";
 

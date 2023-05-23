@@ -38,11 +38,31 @@
                 <span>좋아요 수 :</span><span>1</span><br>
             </div>
             <div>
-            <a href="#" class="btn btn-outline-primary">글등록</a>
+            <a href="/Movie/Write.do?movieId=${userInfo.movieId}" class="btn btn-outline-primary">글등록</a>
             </div>
         </div>
     </div>
-    <div class="col-sm-12 mt-3 pt-3">11111111</div>
+    <div class="col-sm-12 mt-3 pt-3">
+        <div>
+            <table class="table table-hover table-striped text-center">
+                <thead>
+                <th>번호</th>
+                <th>제목</th>
+                <th>시간</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </main>
 </body>
 </html>

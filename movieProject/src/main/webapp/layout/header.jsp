@@ -45,7 +45,7 @@
         <div class="col-sm">
             <div class="d-flex flex-row-reverse">
                 <c:choose>
-                <c:when test="${userInfo.rankId eq '2'}">
+                <c:when test="${userInfo.rankId eq '2' || sessionScope.movieId != null}">
                     <div>
                         <p><a href="#" class="btn btn-primary text-decoration-none">로그아웃</a></p>
                     </div>
