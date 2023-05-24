@@ -77,22 +77,14 @@ public class LoginDAO extends JDBCConnect {
                 userInfoDto.setRankId(rs.getInt("rank_id")); //2
             }
 
-            //  SQL문 확인
-            System.out.println("+--------SQL문 확인--------+");
-            System.out.println(sql);
-            System.out.println("+------------------------+");
-            // 디버그용 중단점
-            ;
         }
         catch (Exception e){
             System.out.println("Login 실패");
             System.out.println("ErrorMessage"+e.getMessage());
             e.printStackTrace();
         }
-
-        //3. connect dp sql 문을 넣어 삽입하고
-        // 3-1 PreparedStatement 에 넣어준다.
-        // 3-2
         return userInfoDto;
     }
+
+
 }
