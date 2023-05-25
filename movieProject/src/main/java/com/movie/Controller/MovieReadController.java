@@ -18,13 +18,25 @@ import java.io.IOException;
 public class MovieReadController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        // 기본
         String movieId = req.getParameter("movieId");
+        String userIndex = req.getParameter("userIndex");
+        String contentNum = req.getParameter("contentNum");
         HttpSession session = req.getSession();
+        System.out.println("movieId"+movieId+"userIndex"+userIndex);
         session.setAttribute("movieId",movieId);
 
+        MovieContentDAO headlist = new MovieContentDAO();
+        LoginDTO userInfo = headlist.selectUserContent(movieId);
+        headlist.dbClose();
+        req.setAttribute("userInfo",userInfo);
+        // 여기까지가 기본
+        
         // 조인된 화면 뿌리기
         MovieContentDAO contentDao = new MovieContentDAO();
-
+        ReadJoinDTO readDto = contentDao.readUser(userIndex,contentNum);
+        contentDao.dbClose();
+        req.setAttribute("readDto",readDto);
 
 
         req.getRequestDispatcher("/mypage/MyReadPage.jsp").forward(req,resp);

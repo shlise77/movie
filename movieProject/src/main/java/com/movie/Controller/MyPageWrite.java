@@ -54,5 +54,8 @@ public class MyPageWrite extends HttpServlet {
 
         conTentDao.insertContent(contentDto, movieId, userNick, userIndex);
         conTentDao.dbClose();
+
+        resp.sendRedirect("/mypage/MyPage.jsp");
+
     }
 }

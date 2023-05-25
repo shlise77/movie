@@ -37,7 +37,7 @@ public class MovieSignUpController extends HttpServlet {
 //        //2-1 insert 을 하기 위해 dao 객체 불러 오기
         LoginDAO loginDao = new LoginDAO(); // 객체 생성
         loginDao.insertLoginMovie(loginDto);
-
+        loginDao.dbClose();
         // 3. 이상이 있을 시 에러 메시지 alert 창으로 띄우고 아니면 저장
         // 3-1 id 중복 check
         // 저장된 값 들고 오기

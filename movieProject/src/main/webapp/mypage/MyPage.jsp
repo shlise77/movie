@@ -26,7 +26,6 @@
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/${userInfo.movieUserImg}" class="card-img-top">
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -34,12 +33,14 @@
             <p>닉네임 : ${userInfo.movieNickName}</p>
         </div>
         <div class="col-sm-4 mb-3 pb-3">
-            <div>
-                <button type="button" class="btn btn-light" onclick=""><i class="bi bi-heart"></i></button>
+            <div class="ps-3">
+                <button type="button" class="btn btn-danger" onclick=""><i class="bi bi-heart"></i></button><br>
+            </div>
+            <div class="pt-3">
                 <span>좋아요 수 :</span><span>1</span><br>
             </div>
-            <div>
-            <a href="/Movie/Write.do?movieId=${userInfo.movieId}" class="btn btn-outline-primary">글등록</a>
+            <div class="mt-5 pt-5">
+                <a href="/Movie/Write.do?movieId=${userInfo.movieId}" class="btn btn-outline-primary">글등록</a>
             </div>
         </div>
     </div>
@@ -52,14 +53,14 @@
                 <th>시간</th>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+
+                    <c:forEach var="contentList" items="${contentList}">
+                    <tr>
+                        <td>${contentList.content_num}</td>
+                        <td><a href="/Movie/Read.do?userIndex=${contentList.user_index}&contentNum=${contentList.content_num}&movieId=${userInfo.movieId}">${contentList.content_title}</a></td>
+                        <td>${contentList.content_date}</td>
                 </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

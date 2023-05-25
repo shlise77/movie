@@ -10,6 +10,17 @@ public class ContentDTO {
     private int like_num;
     private String user_nick;
     private String user_id;
+    private int user_index;
+
+    public int getUser_index() {
+        return user_index;
+    }
+
+    public void setUser_index(int user_index) {
+        this.user_index = user_index;
+    }
+
+
 
     public int getContent_num() {
         return content_num;

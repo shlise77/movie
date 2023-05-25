@@ -67,7 +67,7 @@
                 <input type="file" class="form-control" id="file" name="contentImg" placeholder="글과 함께 등록할 파일을 선택하세요">
             </div>
             <duv>
-                <a href="/Movie/Read.do?movieId=${userInfo.movieId}" class="btn btn-primary">글등록</a>
+                <button type="submit" class="btn btn-primary">글등록</button>
             </duv>
         </form>
     </div>

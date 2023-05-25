@@ -1,17 +1,19 @@
 package com.movie.movieDTO;
 
 public class ReadJoinDTO {
-
     private int content_num;
-    private String movieId;
-    private String movieNickName;
-    private int rankId;
-    private String movieUserImg;
+    private String movie_id;
+    private String movie_nick_name;
+    private int rank_id;
+    private String movie_user_img;
     private String genre;
     private String content_title;
     private String content;
     private String content_img;
     private String content_date;
+    private int like_num;
+    private int user_index;
+
 
     public int getContent_num() {
         return content_num;
@@ -21,36 +23,36 @@ public class ReadJoinDTO {
         this.content_num = content_num;
     }
 
-    public String getMovieId() {
-        return movieId;
+    public String getMovie_id() {
+        return movie_id;
     }
 
-    public void setMovieId(String movieId) {
-        this.movieId = movieId;
+    public void setMovie_id(String movie_id) {
+        this.movie_id = movie_id;
     }
 
-    public String getMovieNickName() {
-        return movieNickName;
+    public String getMovie_nick_name() {
+        return movie_nick_name;
     }
 
-    public void setMovieNickName(String movieNickName) {
-        this.movieNickName = movieNickName;
+    public void setMovie_nick_name(String movie_nick_name) {
+        this.movie_nick_name = movie_nick_name;
     }
 
-    public int getRankId() {
-        return rankId;
+    public int getRank_id() {
+        return rank_id;
     }
 
-    public void setRankId(int rankId) {
-        this.rankId = rankId;
+    public void setRank_id(int rank_id) {
+        this.rank_id = rank_id;
     }
 
-    public String getMovieUserImg() {
-        return movieUserImg;
+    public String getMovie_user_img() {
+        return movie_user_img;
     }
 
-    public void setMovieUserImg(String movieUserImg) {
-        this.movieUserImg = movieUserImg;
+    public void setMovie_user_img(String movie_user_img) {
+        this.movie_user_img = movie_user_img;
     }
 
     public String getGenre() {
@@ -92,4 +94,20 @@ public class ReadJoinDTO {
     public void setContent_date(String content_date) {
         this.content_date = content_date;
     }
+
+    public int getUser_index() {
+        return user_index;
+    }
+
+    public void setUser_index(int user_index) {
+        this.user_index = user_index;
+    }
+    public int getLike_num() {
+        return like_num;
+    }
+
+    public void setLike_num(int like_num) {
+        this.like_num = like_num;
+    }
+
 }
