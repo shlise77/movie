@@ -47,7 +47,9 @@
                 <c:choose>
                 <c:when test="${userInfo.rankId eq '2' || sessionScope.movieId != null}">
                     <div>
-                        <p><a href="#" class="btn btn-primary text-decoration-none">로그아웃</a></p>
+                        <form action="/Movie/Logout.do" method="post">
+                        <p><button type="submit" class="btn btn-primary text-decoration-none">로그아웃</button></p>
+                        </form>
                     </div>
                     <div class="pt-2 pe-5">
                         <span>${userInfo.movieNickName}님 반갑습니다.</span>

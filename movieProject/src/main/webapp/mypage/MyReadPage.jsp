@@ -17,15 +17,27 @@
 </head>
 <body>
 <jsp:include page="/layout/header.jsp"></jsp:include>
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <c:choose>
+                    <c:when test="${userInfo.rankId eq '2'}">
+                        <a href="/Movie/MyPage.do?movieId=${userInfo.movieId}" class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>
+                    </c:when>
+                    <c:when test="${userInfo.rankId eq '' == false}">
+                        <a href="#" class="text-decoration-none fs-3 fw-bold text-light" id="notUser">MyHome</a>
+                    </c:when>
+                </c:choose>
+            </li>
+        </ul>
+    </div>
+</nav>
 <main class="container mt-5">
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">
             <div class="card" style="width: 18rem;">
                 <img src="/resources/img/${userInfo.movieUserImg}" class="card-img-top">
-                <div class="card-body">
-                    <label for="img-chang">이미지 수정 : </label>
-                    <input type="file" id="img-chang" class="form-control">
-                </div>
             </div>
         </div>
         <div class="col-sm-4 mb-3 pb-3">
@@ -35,7 +47,8 @@
         </div>
         <div class="col-sm-4 mb-3 pb-3">
             <div class="ps-3">
-                <button type="button" class="btn btn-danger" onclick=""><i class="bi bi-heart"></i></button><br>
+                <button type="button" class="btn btn-danger" onclick=""><i class="bi bi-heart"></i></button>
+                <br>
             </div>
             <div class="pt-3">
                 <span>좋아요 수 :</span><span>1</span><br>
@@ -46,17 +59,33 @@
         </div>
     </div>
     <div class="col-sm-12 mt-3 pt-3">
-        <label for="read-title" class="form-label">제목:</label>
-        <input type="text" id="read-title" class="form-control mb-3" name="contentTitle" value="${readDto.content_title}"/>
+        <div class="mb-3">
+            <div>
+                <img src="/resources/img/${readDto.movie_user_img}" style="width: 50%; height: 50%;" class="card-img-top rounded-3">
+            </div>
+        </div>
+        <div>
+            <label for="read-title" class="form-label">제목:</label>
+            <input type="text" id="read-title" class="form-control mb-3" name="contentTitle"
+                   value="${readDto.content_title}"/>
+        </div>
+        <div>
+            <textarea name="content" id="content" cols="171" rows="20">${readDto.content}</textarea>
+        </div>
+        <div class="btn-group d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <div>
+                <a href="/Movie/MyEdit.do?movieId=${readDto.movie_id}&contentNum=${readDto.content_num}&userIndex=${readDto.user_index}"
+                   class="btn btn-primary">수정</a></div>
+            <form action="/Movie/Delete.do" method="post">
+            <div>
+                <input type="hidden" name="content_num" value="${readDto.content_num}">
+                <input type="hidden" name="user_index" value="${readDto.user_index}">
+                <input type="hidden" name="movie_id" value="${readDto.movie_id}">
+                <button type="submit" class="btn btn-danger">삭제</button>
+            </div>
+            </form>
+        </div>
     </div>
-    <div>
-    <textarea name="content" id="content" cols="171" rows="20">${readDto.content}</textarea>
-    </div>
-    <div class="btn-group d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-        <div><a href="Movie/MyEdit.do" class="btn btn-primary">수정</a></div>
-        <div><a href="#" class="btn btn-danger">삭제</a></div>
-    </div>
-
 </main>
 </body>
 </html>

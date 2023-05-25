@@ -18,8 +18,22 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp"></jsp:include>
-
-
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <c:choose>
+                    <c:when test="${userInfo.rankId eq '2'}">
+                        <a href="/Movie/MyPage.do?movieId=${userInfo.movieId}" class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>
+                    </c:when>
+                    <c:when test="${userInfo.rankId eq '' == false}">
+                        <a href="#" class="text-decoration-none fs-3 fw-bold text-light" id="notUser">MyHome</a>
+                    </c:when>
+                </c:choose>
+            </li>
+        </ul>
+    </div>
+</nav>
 <main class="container mt-5">
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">

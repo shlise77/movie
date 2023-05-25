@@ -157,4 +157,54 @@ public class MovieContentDAO extends JDBCConnect {
         }
         return readPage;
     }
+
+    // 업데이트
+    public int contentUpdate (ContentDTO updateDto){
+        int result = 0;
+
+        String sql = "UPDATE ";
+        sql +="movie_content ";
+        sql +="SET ";
+        sql +="content_title = ?, content = ?, genre = ? ";
+        sql +="WHERE user_index = ? AND content_num = ?";
+
+        try{
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, updateDto.getContent_title());
+            pstmt.setString(2, updateDto.getContent());
+            pstmt.setString(3, updateDto.getGenre());
+            pstmt.setInt(4, updateDto.getUser_index());
+            pstmt.setInt(5, updateDto.getContent_num());
+
+            result = pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println("수정 페이지에서 오류가 발생했습니다.");
+            System.out.println("ERROR MESSAGE :"+ e.getMessage());
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public int contentDelete(String content_num, String user_index){
+        int result = 0;
+        String sql = "DELETE FROM movie_content ";
+        sql += "WHERE content_num = ? AND user_index = ? ";
+
+        try{
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,content_num);
+            pstmt.setString(2,user_index);
+
+            result = pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println("삭제 부분에서 에러가 발생했습니다.");
+            System.out.println("ERROR MESSAGE : "+ e.getMessage());
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }

@@ -29,14 +29,6 @@ dependencies {
   compileOnly group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.3'
   ////////////////////////////////////////////////////////////
 
-  // jstl gradle ////////////
-
-  // https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/javax.servlet.jsp.jstl-api
-  compileOnly group: 'javax.servlet.jsp.jstl', name: 'javax.servlet.jsp.jstl-api', version: '1.2.2'
-  // https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl
-  implementation group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: '1.2.5'
-  ////////////////////////////////////////////////////////////////////
-
   // file_upload gradle //////////
   // https://mvnrepository.com/artifact/com.jfinal/cos
   implementation group: 'com.jfinal', name: 'cos', version: '2022.2'
@@ -46,12 +38,20 @@ dependencies {
   implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.5'
   ///////////////////////////////////////////////////////////////////
 
+
+  // jstl gradle ////////////
+
+  // https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/javax.servlet.jsp.jstl-api
+  compileOnly group: 'javax.servlet.jsp.jstl', name: 'javax.servlet.jsp.jstl-api', version: '1.2.2'
+  // https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl
+  implementation group: 'org.glassfish.web', name: 'javax.servlet.jsp.jstl', version: '1.2.5'
+  ////////////////////////////////////////////////////////////////////
+
   // mysql 연결
   // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
   implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.0.33'
   ////////////////////////////////////////////////////
 // https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api
-
   // https://mvnrepository.com/artifact/org.glassfish.main/javax.annotation
   implementation 'org.glassfish.main:javax.annotation:4.0-b33'
 

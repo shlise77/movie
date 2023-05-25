@@ -27,13 +27,8 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
             <li class="nav-item">
-<%--                <a href="/Movie/MyPage.do" class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>--%>
                 <c:choose>
                     <c:when test="${userInfo.rankId eq '2'}">
-                        <%
-                            //session 값 가져오기
-
-                        %>
                         <a href="/Movie/MyPage.do?movieId=${userInfo.movieId}" class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>
                     </c:when>
                     <c:when test="${userInfo.rankId eq '' == false}">
