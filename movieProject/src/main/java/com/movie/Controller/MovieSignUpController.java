@@ -25,8 +25,6 @@ public class MovieSignUpController extends HttpServlet {
         String userNickName = req.getParameter("userNickName");
         String userPw = req.getParameter("userPw");
 
-        System.out.println("아이디"+movieId+"닉네임"+userNickName+"userpw"+userPw);
-
         // 2. dao 값을 쏘고
         // getAttribute, getParameter 차이점 공부해보기
         LoginDTO loginDto = new LoginDTO(); // 객체를 생성

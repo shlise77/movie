@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>등록게시판</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">
             <div class="card" style="width: 18rem;">
-                <img src="/resources/img/${userInfo.movieUserImg}" class="card-img-top">
+                <img src="/resources/images/${userInfo.movieUserImg}"class="card-img-top">
                 <div class="card-body">
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
@@ -80,7 +81,7 @@
             </div>
             <div class="my-3">
                 <label for="file" class="form-label">첨부파일 : </label>
-                <input type="file" class="form-control" id="file" name="contentImg" placeholder="글과 함께 등록할 파일을 선택하세요">
+                <input type="file" class="form-control" id="file" name="file" placeholder="글과 함께 등록할 파일을 선택하세요">
             </div>
             <duv>
                 <button type="submit" class="btn btn-primary">글등록</button>

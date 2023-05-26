@@ -32,15 +32,17 @@
     }
 </style>
 <header class="container-fluid bg-secondary p-4">
-    <%
-        String userId = request.getParameter("movieId");
-        session.setAttribute("userId",userId);
-        String movieId = (String)session.getAttribute("userId");
-        out.println("123"+movieId);
-    %>
     <div class="row">
         <div class="col-sm-2">
-            <a href="#" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
+            <c:choose>
+                <c:when test="${userInfo.rankId eq '2' || sessionScope.movieId != null}">
+                    <a href="/movieMain.jsp" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
+                </c:when>
+                <c:when test="${userInfo.rankId eq '' == false}">
+                    <a href="/movieMain.jsp" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
+                </c:when>
+
+            </c:choose>
         </div>
         <div class="col-sm">
             <div class="d-flex flex-row-reverse">

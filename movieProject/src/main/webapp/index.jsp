@@ -8,7 +8,7 @@
 <h1><%= "Hello World!" %></h1>
 <br/>
 <%
-  response.sendRedirect("/movieMain.jsp");
+  response.sendRedirect("/Movie/Main.do");
 %>
 </body>
 </html>

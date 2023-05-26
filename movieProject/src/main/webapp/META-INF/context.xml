@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resources>
+        <PreResources className="org.apache.catalina.webresources.DirResourceSet"
+                      webAppMount="/resources/images" base="C:\smart505\project\movie\movieProject\src\main\webapp\resources\images\"/>
+    </Resources>
+</Context>

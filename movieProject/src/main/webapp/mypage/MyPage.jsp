@@ -38,7 +38,8 @@
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">
             <div class="card" style="width: 18rem;">
-                <img src="/resources/img/${userInfo.movieUserImg}" class="card-img-top">
+                <img src="/resources/images/no-image.jpg" class="card-img-top">
+<%--                <img src=../images/${userInfo.movieUserImg}" class="card-img-top">--%>
                 <div class="card-body">
                 </div>
             </div>
@@ -47,12 +48,6 @@
             <p>닉네임 : ${userInfo.movieNickName}</p>
         </div>
         <div class="col-sm-4 mb-3 pb-3">
-            <div class="ps-3">
-                <button type="button" class="btn btn-danger" onclick=""><i class="bi bi-heart"></i></button><br>
-            </div>
-            <div class="pt-3">
-                <span>좋아요 수 :</span><span>1</span><br>
-            </div>
             <div class="mt-5 pt-5">
                 <a href="/Movie/Write.do?movieId=${userInfo.movieId}" class="btn btn-outline-primary">글등록</a>
             </div>
@@ -65,6 +60,7 @@
                 <th>번호</th>
                 <th>제목</th>
                 <th>시간</th>
+                <th>좋아요 수</th>
                 </thead>
                 <tbody>
 
@@ -73,6 +69,7 @@
                         <td>${contentList.content_num}</td>
                         <td><a href="/Movie/Read.do?userIndex=${contentList.user_index}&contentNum=${contentList.content_num}&movieId=${userInfo.movieId}">${contentList.content_title}</a></td>
                         <td>${contentList.content_date}</td>
+                        <td>${contentList.like_num}</td>
                 </tr>
                     </c:forEach>
                 </tbody>

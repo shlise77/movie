@@ -37,7 +37,7 @@
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">
             <div class="card" style="width: 18rem;">
-                <img src="/resources/img/${userInfo.movieUserImg}" class="card-img-top">
+                <img src="/resources/images/${userInfo.movieUserImg}" class="card-img-top">
             </div>
         </div>
         <div class="col-sm-4 mb-3 pb-3">
@@ -61,7 +61,8 @@
     <div class="col-sm-12 mt-3 pt-3">
         <div class="mb-3">
             <div>
-                <img src="/resources/img/${readDto.movie_user_img}" style="width: 50%; height: 50%;" class="card-img-top rounded-3">
+                <p>이미지 명 이름11 : ${readDto.content_img}</p>
+                <img src="/resources/images/${readDto.content_img}" class="card-img-top rounded-3">
             </div>
         </div>
         <div>

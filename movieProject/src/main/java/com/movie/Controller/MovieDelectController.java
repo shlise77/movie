@@ -17,8 +17,6 @@ public class MovieDelectController extends HttpServlet {
         String userIndex = req.getParameter("user_index");
         String movieId = req.getParameter("movie_id");
 
-        System.out.println("contentNum::"+contentNum+"\tuserIndex::"+userIndex+"\tmovie_id"+movieId);
-
         MovieContentDAO dalDao = new MovieContentDAO();
 
         int result = dalDao.contentDelete(contentNum,userIndex);

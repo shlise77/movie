@@ -23,7 +23,6 @@ public class MovieReadController extends HttpServlet {
         String userIndex = req.getParameter("userIndex");
         String contentNum = req.getParameter("contentNum");
         HttpSession session = req.getSession();
-        System.out.println("movieId"+movieId+"userIndex"+userIndex);
         session.setAttribute("movieId",movieId);
 
         MovieContentDAO headlist = new MovieContentDAO();
@@ -37,8 +36,6 @@ public class MovieReadController extends HttpServlet {
         ReadJoinDTO readDto = contentDao.readUser(userIndex,contentNum);
         contentDao.dbClose();
         req.setAttribute("readDto",readDto);
-
-
         req.getRequestDispatcher("/mypage/MyReadPage.jsp").forward(req,resp);
 
     }

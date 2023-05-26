@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Title</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">
             <div class="card" style="width: 18rem;">
-                <img src="/resources/img/${userInfo.movieUserImg}" class="card-img-top">
+                <img src="/resources/images/${userInfo.movieUserImg}" class="card-img-top">
                 <div class="card-body">
                     <label for="img-chang">이미지 수정 : </label>
                     <input type="file" id="img-chang" class="form-control">
@@ -46,7 +47,6 @@
         <div class="col-sm-4 mb-3 pb-3">
             <p>닉네임 : ${readDto.movie_nick_name}</p>
             <p>장르 : ${readDto.genre}
-                넘버 : ${readDto.content_num}
             </p>
         </div>
         <div class="col-sm-4 mb-3 pb-3">
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="col-sm-12 mt-3 pt-3">
-        <form action="/Movie/MyEdit.do" method="post">
+        <form action="/Movie/MyEdit.do" method="post" enctype="multipart/form-data">
             <input type="hidden" name="movieId"  value="${userInfo.movieId}"/>
             <input type="hidden" name="movieNickName"  value="${userInfo.movieNickName}"/>
             <input type="hidden" name="movieIndex" value="${userInfo.movieIndex}"/>
@@ -82,14 +82,14 @@
             <div class="form-floating">
                 <textarea class="form-control" name="content" style="height: 300px">${readDto.content}</textarea>
             </div>
+            <div class="my-3">
+                <label for="file" class="form-label">첨부파일 : </label>
+                <input type="file" class="form-control" id="file" name="file">
+            </div>
             <duv>
                 <button type="submit" class="btn btn-primary">글등록</button>
             </duv>
         </form>
-        <div class="my-3">
-            <label for="file" class="form-label">첨부파일 : </label>
-            <input type="file" class="form-control" id="file" name="contentImg">
-        </div>
     </div>
 
 </main>

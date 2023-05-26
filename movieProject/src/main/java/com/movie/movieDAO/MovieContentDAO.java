@@ -89,7 +89,7 @@ public class MovieContentDAO extends JDBCConnect {
     }
 
     // 조인문을 쓸것인데 쓸려면 두개의 DTO을 불러 와서
-    public int insertContent(ContentDTO contentDto, String movieId, String userNick, String userIndex) {
+    public int insertContent(ContentDTO contentDto, String movieId, String userNick, String userIndex, String fileName) {
         int result = 0;
 
         String sql = "INSERT INTO ";
@@ -102,7 +102,7 @@ public class MovieContentDAO extends JDBCConnect {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, contentDto.getContent_title());
             pstmt.setString(2, contentDto.getContent());
-            pstmt.setString(3, contentDto.getContent_img());
+            pstmt.setString(3, fileName);
             pstmt.setString(4, contentDto.getGenre());
             pstmt.setString(5, userNick);
             pstmt.setString(6, movieId);
@@ -159,22 +159,23 @@ public class MovieContentDAO extends JDBCConnect {
     }
 
     // 업데이트
-    public int contentUpdate (ContentDTO updateDto){
+    public int contentUpdate (ContentDTO updateDto, String contentTitle, String content, String userIndex, String contentNum, String newFileName){
         int result = 0;
 
         String sql = "UPDATE ";
         sql +="movie_content ";
         sql +="SET ";
-        sql +="content_title = ?, content = ?, genre = ? ";
+        sql +="content_title = ?, content = ?, genre = ?, content_img = ? ";
         sql +="WHERE user_index = ? AND content_num = ?";
 
         try{
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, updateDto.getContent_title());
-            pstmt.setString(2, updateDto.getContent());
+            pstmt.setString(1, contentTitle);
+            pstmt.setString(2, content);
             pstmt.setString(3, updateDto.getGenre());
-            pstmt.setInt(4, updateDto.getUser_index());
-            pstmt.setInt(5, updateDto.getContent_num());
+            pstmt.setString(4, newFileName);
+            pstmt.setString(5, userIndex);
+            pstmt.setString(6, contentNum);
 
             result = pstmt.executeUpdate();
         }
@@ -184,7 +185,7 @@ public class MovieContentDAO extends JDBCConnect {
             e.printStackTrace();
         }
 
-        return result;
+     return result;
     }
 
     public int contentDelete(String content_num, String user_index){
