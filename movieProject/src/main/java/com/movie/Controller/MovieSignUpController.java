@@ -31,16 +31,17 @@ public class MovieSignUpController extends HttpServlet {
         loginDto.setMovieId(req.getParameter("movieId"));
         loginDto.setMoviePw(req.getParameter("userPw"));
         loginDto.setMovieNickName(req.getParameter("userNickName"));
-//
+
 //        //2-1 insert 을 하기 위해 dao 객체 불러 오기
         LoginDAO loginDao = new LoginDAO(); // 객체 생성
         loginDao.insertLoginMovie(loginDto);
+        int result = loginDao.hashPassWord(userPw,movieId);
         loginDao.dbClose();
-        // 3. 이상이 있을 시 에러 메시지 alert 창으로 띄우고 아니면 저장
-        // 3-1 id 중복 check
-        // 저장된 값 들고 오기
 
-        // 4. 값이 정상적으로 완료가 되면 메인 화면으로 이동(저장이 완료 되었다는 것과 함께 다시 로그인 해달라 라는 메시지 출력)
-        resp.sendRedirect("/movieMain.jsp");
+        if(result == 1){
+            System.out.println("해쉬적용이 완료 되었습니다.");
+            // 4. 값이 정상적으로 완료가 되면 메인 화면으로 이동(저장이 완료 되었다는 것과 함께 다시 로그인 해달라 라는 메시지 출력)
+            resp.sendRedirect("/Movie/Main.do");
+        }
     }
 }

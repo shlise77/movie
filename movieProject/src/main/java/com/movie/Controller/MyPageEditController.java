@@ -49,7 +49,8 @@ public class MyPageEditController extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 저장위치
-        String saveImg = "C:\\smart505\\project\\movie\\movieProject\\src\\main\\webapp\\resources\\images\\";
+//        String saveImg = "C:\\smart505\\project\\movie\\movieProject\\src\\main\\webapp\\resources\\images\\";
+        String saveImg = "C:\\Users\\lyuli\\Pictures\\Screenshots\\";
         // 사이즈
         int maxSize = 10 * 1024 * 1024;
 

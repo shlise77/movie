@@ -8,6 +8,15 @@ public class LoginDTO {
     private String movieNickName; //사용할 닉네임
     private int rankId;// 회원 구분
     private String movieUserImg; // 회원 이미지
+    private String salt;
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
 
 
     public int getMovieIndex() {

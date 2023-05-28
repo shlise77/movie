@@ -1,9 +1,11 @@
 package com.movie.movieDAO;
 
+import com.movie.Util.SHA256Util;
 import com.movie.movieDTO.LoginDTO;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +17,15 @@ public class LoginDAO extends JDBCConnect {
 
     // 메소드
     // 회원가입 메소드
-    public int insertLoginMovie(LoginDTO loginDto) {
+    public int insertLoginMovie(LoginDTO loginDto){
         int result = 0;
         // 회원가입할 sql insert 문 작성
         String sql = "INSERT INTO ";
             sql += "movie_login (movie_id, movie_pw, movie_nick_name) ";
         sql += "VALUES ";
         sql += "(?, ?, ?)";
+
+
 
         // slq 문 등록
         try {
@@ -34,7 +38,6 @@ public class LoginDAO extends JDBCConnect {
             // conn 으로 디비를 연결 하고 insert 쿼리문 을 변경으로 저장한 sql 변수 을
             // stmt 에 저장
             pstmt = conn.prepareStatement(sql);
-
             // 저장
             pstmt.setString(1, loginDto.getMovieId());
             pstmt.setString(2, loginDto.getMoviePw());
@@ -86,5 +89,35 @@ public class LoginDAO extends JDBCConnect {
         return userInfoDto;
     }
 
+    public int hashPassWord(String userPw, String movieId) {
+        int result = 0;
 
+        LoginDTO passWorldChange = new LoginDTO();
+
+        System.out.println("up 부분");
+
+        String sql = "UPDATE movie_login  SET movie_pw = ? WHERE movie_id= ? ";
+
+        int indexGet = passWorldChange.getMovieIndex();
+        System.out.println("인트"+indexGet);
+
+
+        try {
+            String newPassWord = SHA256Util.getEncrypt(userPw,movieId);
+            System.out.println("newpassword:"+newPassWord);
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,newPassWord);
+            pstmt.setString(2,movieId);
+            result = pstmt.executeUpdate();
+
+
+        } catch (Exception e) {
+            System.out.println("비밀번호 변경 부분에서 에러가 발생했습니다.");
+            System.out.println("ERROR MESSAGE : " +e.getMessage());
+            e.printStackTrace();
+        }
+
+
+        return result;
+    }
 }

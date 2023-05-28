@@ -1,6 +1,7 @@
 package com.movie.Controller;
 
 import com.movie.movieDAO.MainDAO;
+import com.movie.movieDTO.LoginDTO;
 import com.movie.movieDTO.MainDTO;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ public class MovieMainController extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         MainDAO mainDaoList = new MainDAO();
+
         List<MainDTO> mainList = mainDaoList.mainCarousel();
         mainDaoList.dbClose();
         req.setAttribute("mainList",mainList);

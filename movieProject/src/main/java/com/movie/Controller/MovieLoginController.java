@@ -24,6 +24,7 @@ public class MovieLoginController extends HttpServlet{
         String movieId = req.getParameter("movieId");
         LoginDTO userInfo = loginDao.selectLoginMovie(movieId);
         loginDao.dbClose();
+
         req.setAttribute("userInfo", userInfo);
         req.getRequestDispatcher("/movieMain.jsp").forward(req,resp);
 
