@@ -42,6 +42,27 @@
 </nav>
 <main>
 
+<%--    <c:forEach var="mainList" items="${mainList}">--%>
+        <div class="container mt-lg-5">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="border border-2">
+                        <img src="/resources/images/no-image.jpg" class="rounded ms-5" style="width: 17.3rem; height: 9.2rem;">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="border border-2 bg-light h-100">
+                        <div>
+                            <p class="fs-3 fw-bold">제목</p>
+                            <p class="fs-5">장르</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%--    </c:forEach>--%>
+
+
 <%--    <div class="container">--%>
 <%--        <div class="row">--%>
 <%--            <div class="col-sm-12 mt-5">--%>
