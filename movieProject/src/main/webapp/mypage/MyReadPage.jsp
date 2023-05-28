@@ -23,7 +23,8 @@
             <li class="nav-item">
                 <c:choose>
                     <c:when test="${userInfo.rankId eq '2'}">
-                        <a href="/Movie/MyPage.do?movieId=${userInfo.movieId}" class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>
+                        <a href="/Movie/MyPage.do?movieId=${userInfo.movieId}"
+                           class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>
                     </c:when>
                     <c:when test="${userInfo.rankId eq '' == false}">
                         <a href="#" class="text-decoration-none fs-3 fw-bold text-light" id="notUser">MyHome</a>
@@ -45,14 +46,21 @@
             <p>장르 : ${readDto.genre}
             </p>
         </div>
-        <div class="col-sm-4 mb-3 pb-3">
-            <div class="ps-3">
-                <button type="button" class="btn btn-danger" onclick=""><i class="bi bi-heart"></i></button>
-                <br>
-            </div>
-            <div class="pt-3">
-                <span>좋아요 수 :</span><span>1</span><br>
-            </div>
+        <div class="col-sm-4 mb-3 pb-3" id="btnlike">
+            <form action="/Movie/Read.do" method="post">
+                <div class="ps-3">
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-heart"></i>
+                    </button>
+                    <br>
+                </div>
+                <div class="pt-3">
+                    <input type="hidden" name="contentNum" value="${readDto.content_num}"/>
+                    <input type="hidden" name="likeNum" value="${readDto.like_num}"/>
+                    <input type="hidden" name="userIndex" value="${readDto.user_index}"/>
+                    <input type="hidden" name="movieId" value="${readDto.movie_id}"/>
+                    <span>좋아요 수 :</span><span>${readDto.like_num}</span><br>
+                </div>
+            </form>
             <div class="mt-5 pt-5">
                 <a href="/Movie/Write.do?movieId=${userInfo.movieId}" class="btn btn-outline-primary">글등록</a>
             </div>
@@ -78,12 +86,12 @@
                 <a href="/Movie/MyEdit.do?movieId=${readDto.movie_id}&contentNum=${readDto.content_num}&userIndex=${readDto.user_index}"
                    class="btn btn-primary">수정</a></div>
             <form action="/Movie/Delete.do" method="post">
-            <div>
-                <input type="hidden" name="content_num" value="${readDto.content_num}">
-                <input type="hidden" name="user_index" value="${readDto.user_index}">
-                <input type="hidden" name="movie_id" value="${readDto.movie_id}">
-                <button type="submit" class="btn btn-danger">삭제</button>
-            </div>
+                <div>
+                    <input type="hidden" name="content_num" value="${readDto.content_num}">
+                    <input type="hidden" name="user_index" value="${readDto.user_index}">
+                    <input type="hidden" name="movie_id" value="${readDto.movie_id}">
+                    <button type="submit" class="btn btn-danger">삭제</button>
+                </div>
             </form>
         </div>
     </div>

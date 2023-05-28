@@ -208,4 +208,27 @@ public class MovieContentDAO extends JDBCConnect {
 
         return result;
     }
+
+    public int likeNumUp(String likeNum, String contentNum){
+        int result = 0;
+
+        String sql = " UPDATE movie_content ";
+        sql +=" SET ";
+        sql +="like_num = ? + 1 ";
+        sql +=" WHERE content_num = ? ";
+
+        try{
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, likeNum);
+            pstmt.setString(2, contentNum);
+            result = pstmt.executeUpdate();
+        }
+        catch(Exception e){
+            System.out.println("좋아요 업데이트 sql 부분에서 에러가 발생했습니다.");
+            System.out.println("ERROR MESSAGE :" + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }

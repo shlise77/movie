@@ -40,5 +40,22 @@ public class MovieReadController extends HttpServlet {
 
     }
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{}
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        String likeNum = req.getParameter("likeNum");
+        String contentNum = req.getParameter("contentNum");
+        String userIndex = req.getParameter("userIndex");
+        String movieId = req.getParameter("movieId");
+
+        MovieContentDAO likeUpDao = new MovieContentDAO();
+        int result = likeUpDao.likeNumUp(likeNum,contentNum);
+
+        if(result == 1){
+            System.out.println("좋아요 기능 성공!!");
+        }
+
+
+
+
+
+    }
 }
