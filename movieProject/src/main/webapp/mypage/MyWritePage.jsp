@@ -37,7 +37,7 @@
     <div class="row mx-3 px-3 border-bottom">
         <div class="col-sm-4 mb-3 pb-3">
             <div class="card" style="width: 18rem;">
-                <img src="/resources/images/${userInfo.movieUserImg}"class="card-img-top">
+                <img src="/resources/images/no-image.jpg"class="card-img-top">
                 <div class="card-body">
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
@@ -48,15 +48,7 @@
             <p>장르 :
             </p>
         </div>
-        <div class="col-sm-4 mb-3 pb-3">
-            <div>
-                <button type="button" class="btn btn-light" onclick=""><i class="bi bi-heart"></i></button>
-                <span>좋아요 수 :</span><span>1</span><br>
-            </div>
-            <div>
 
-            </div>
-        </div>
     </div>
     <div class="col-sm-12 mt-3 pt-3">
 

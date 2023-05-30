@@ -27,7 +27,7 @@
                         <a href="/Movie/MyPage.do?movieId=${userInfo.movieId}" class="text-decoration-none fs-3 fw-bold text-light">MyHome</a>
                     </c:when>
                     <c:when test="${userInfo.rankId eq '' == false}">
-                        <a href="#" class="text-decoration-none fs-3 fw-bold text-light" id="notUser">MyHome</a>
+                        <a href="/Movie/MyPage.do" class="text-decoration-none fs-3 fw-bold text-light" id="notUser">MyHome</a>
                     </c:when>
                 </c:choose>
             </li>
