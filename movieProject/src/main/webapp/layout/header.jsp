@@ -7,13 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script>
-    $(document).ready(function () {
-        $("#loginBtn").on("click", function () {
-            alert('공사중');
-        });
-    });
-</script>
 <style>
     .header-control {
         display: inline;
@@ -34,15 +27,7 @@
 <header class="container-fluid bg-secondary p-4">
     <div class="row">
         <div class="col-sm-2">
-            <c:choose>
-                <c:when test="${userInfo.rankId eq '2' || sessionScope.movieId != null}">
-                    <a href="/movieMain.jsp" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
-                </c:when>
-                <c:when test="${userInfo.rankId eq '' == false}">
-                    <a href="/movieMain.jsp" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
-                </c:when>
-
-            </c:choose>
+            <a href="#" class="fs-2 text-info text-center text-decoration-none">영화 공간</a>
         </div>
         <div class="col-sm">
             <div class="d-flex flex-row-reverse">
@@ -50,7 +35,9 @@
                 <c:when test="${userInfo.rankId eq '2' || sessionScope.movieId != null}">
                     <div>
                         <form action="/Movie/Logout.do" method="post">
-                        <p><button type="submit" class="btn btn-primary text-decoration-none">로그아웃</button></p>
+                            <p>
+                                <button type="submit" class="btn btn-primary text-decoration-none">로그아웃</button>
+                            </p>
                         </form>
                     </div>
                     <div class="pt-2 pe-5">

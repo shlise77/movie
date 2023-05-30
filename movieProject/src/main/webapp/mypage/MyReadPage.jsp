@@ -14,6 +14,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Title</title>
+    <script>
+        function formdata(){
+            let lickNum = $("form[name=formLike]").serialize();
+
+            $.ajax({
+                type : "post",
+                url : "/Movie/Read.do",
+                data : lickNum,
+                dataType : 'json',
+                success : function(lickNum){
+                    location.reload();
+                }
+            });
+
+        }
+    </script>
 </head>
 <body>
 <jsp:include page="/layout/header.jsp"></jsp:include>
@@ -47,9 +63,9 @@
             </p>
         </div>
         <div class="col-sm-4 mb-3 pb-3" id="btnlike">
-            <form action="/Movie/Read.do" method="post">
+            <form id="formLike" name="formLike">
                 <div class="ps-3">
-                    <button type="submit" class="btn btn-danger"><i class="bi bi-heart"></i>
+                    <button type="submit" class="btn btn-danger" onclick="formdata()"><i class="bi bi-heart"></i>
                     </button>
                     <br>
                 </div>

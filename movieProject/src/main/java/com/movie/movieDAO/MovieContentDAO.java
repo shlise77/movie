@@ -21,7 +21,7 @@ public class MovieContentDAO extends JDBCConnect {
         List<ContentDTO> contentDtoList = new ArrayList<>();
 
         String sql = "SELECT ";
-        sql += "content_num, content_title, content, content_img, content_date, genre, user_nick, user_id, user_index ";
+        sql += "content_num, content_title, content, content_img , like_num, content_date, genre, user_nick, user_id, user_index ";
         sql += " FROM ";
         sql += "movie_content ";
         sql += "ORDER BY content_num DESC ";
@@ -41,6 +41,7 @@ public class MovieContentDAO extends JDBCConnect {
                 contentDto.setUser_nick(rs.getString("user_nick"));
                 contentDto.setUser_id(rs.getString("user_id"));
                 contentDto.setUser_index(rs.getInt("user_index"));
+                contentDto.setLike_num(rs.getInt("like_num"));
 
                 contentDtoList.add(contentDto);
             }

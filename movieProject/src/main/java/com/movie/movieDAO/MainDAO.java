@@ -19,7 +19,7 @@ public class MainDAO extends JDBCConnect{
         sql+="like_num, content_img, content_title, content_num, genre ";
         sql+="FROM ";
         sql+="movie_content ";
-        sql+="WHERE like_num BETWEEN 5 AND 50 ";
+        sql+="WHERE like_num BETWEEN 1 AND 50 ";
         sql+="ORDER BY ";
         sql+="like_num ";
         sql+="DESC ";
